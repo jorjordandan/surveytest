@@ -1,0 +1,12 @@
+{
+  "name": "surveytest",
+  "displayName": "surveytest",
+  "expo": {
+    "name": "surveytest",
+    "slug": "surveytest",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
