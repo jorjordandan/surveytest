@@ -1,21 +1,27 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { PureComponent, createRef } from "react";
+import SurveyMonkey from "react-native-survey-monkey";
+import { View, Text, TouchableOpacity } from "react-native";
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+export default class App extends PureComponent {
+  constructor(props) {
+    super(props);
+
+    this.onTouch = this.onTouch.bind(this);
+    this.surveyMonkeyRef = createRef();
+  }
+
+  onTouch() {
+    this.surveyMonkeyRef.current.showSurveyMonkey("LS73QGP");
+  }
+
+  render() {
+    return (
+      <View>
+        <SurveyMonkey ref={this.surveyMonkeyRef} />
+        <TouchableOpacity onPress={this.onTouch}>
+          <Text style={{ paddingTop: 400 }}>Show survey</Text>
+        </TouchableOpacity>
+      </View>
+    );
+  }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
